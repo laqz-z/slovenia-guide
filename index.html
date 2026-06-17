@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Days in Slovenia — Ljubljana & Lake Bled — €500 Budget Guide</title>
+<script>
+  const PASS = "bled-guide-26";
+  function checkPass() {
+    const input = document.getElementById("pass-input").value.trim();
+    if (input === PASS) {
+      document.getElementById("lock-screen").style.display = "none";
+      document.getElementById("guide-content").style.display = "block";
+      sessionStorage.setItem("slovenia-unlocked", "1");
+    } else {
+      const err = document.getElementById("pass-error");
+      err.style.opacity = "1";
+      document.getElementById("pass-input").style.borderColor = "#e05555";
+      setTimeout(() => { err.style.opacity = "0"; }, 2500);
+    }
+  }
+  window.addEventListener("DOMContentLoaded", () => {
+    if (sessionStorage.getItem("slovenia-unlocked") === "1") {
+      document.getElementById("lock-screen").style.display = "none";
+      document.getElementById("guide-content").style.display = "block";
+    }
+    document.getElementById("pass-input").addEventListener("keydown", e => {
+      if (e.key === "Enter") checkPass();
+    });
+  });
+</script>
+<style>
+  #lock-screen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #1a2e1a;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    padding: 32px;
+  }
+  #lock-screen .lock-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #a8c5a0;
+    margin-bottom: 48px;
+  }
+  #lock-screen h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 300;
+    color: #f5f0e8;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  #lock-screen h2 em { font-style: italic; color: #a8c5a0; }
+  #lock-screen p {
+    color: #6b9ab8;
+    font-size: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  #lock-screen .input-row {
+    display: flex; gap: 12px; width: 100%; max-width: 380px;
+  }
+  #pass-input {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(168,197,160,0.25);
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: #f5f0e8;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    letter-spacing: 1px;
+  }
+  #pass-input:focus { border-color: rgba(168,197,160,0.6); }
+  #pass-input::placeholder { color: rgba(245,240,232,0.25); letter-spacing: 0; }
+  #lock-btn {
+    background: #4a7c59;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 22px;
+    color: #f5f0e8;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  #lock-btn:hover { background: #5a9469; }
+  #pass-error {
+    color: #e05555;
+    font-size: 13px;
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  #lock-screen .lock-note {
+    margin-top: 48px;
+    font-size: 12px;
+    color: rgba(168,197,160,0.35);
+    text-align: center;
+    line-height: 1.7;
+  }
+  #guide-content { display: none; }
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --green-deep: #1a2e1a;
+    --green-mid: #2d4a2d;
+    --green-soft: #4a7c59;
+    --green-pale: #a8c5a0;
+    --cream: #f5f0e8;
+    --cream-dark: #ede5d8;
+    --water: #6b9ab8;
+    --water-light: #a8c8dc;
+    --gold: #c8a96e;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    background: var(--green-deep);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(74,124,89,0.3) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 80%, rgba(107,154,184,0.2) 0%, transparent 60%);
+  }
+
+  .cover-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green-pale);
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .cover-tag::before, .cover-tag::after {
+    content: '—';
+    margin: 0 12px;
+    opacity: 0.5;
+  }
+
+  .cover h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .cover h1 em {
+    font-style: italic;
+    color: var(--green-pale);
+  }
+
+  .cover-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--water-light);
+    position: relative;
+    margin-bottom: 48px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .cover-pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(168,197,160,0.3);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cream);
+    letter-spacing: 0.5px;
+  }
+
+  .cover-pill span {
+    color: var(--green-pale);
+    margin-right: 6px;
+  }
+
+  .cover-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(168,197,160,0.4);
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section {
+    margin-bottom: 64px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--green-soft);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--cream-dark);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--green-deep);
+  }
+
+  .intro-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-mid);
+    max-width: 680px;
+  }
+
+  .perfect-for {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .tag {
+    background: var(--green-deep);
+    color: var(--green-pale);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── BUDGET TABLE ── */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    background: var(--cream-dark);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .budget-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 0;
+    background: var(--cream);
+    padding: 16px 24px;
+    align-items: start;
+  }
+
+  .budget-row:nth-child(even) { background: #f0ebe0; }
+
+  .budget-row.header {
+    background: var(--green-deep);
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .budget-row.total {
+    background: var(--green-mid);
+    color: var(--cream);
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .budget-cat { font-weight: 500; color: var(--text-dark); }
+  .budget-amt { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--green-soft); }
+  .budget-note { font-size: 13px; color: var(--text-light); }
+  .budget-row.total .budget-amt { color: var(--green-pale); font-size: 24px; }
+
+  /* ── ACCOMMODATION CARDS ── */
+  .accom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .accom-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border-top: 3px solid var(--green-soft);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .accom-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 4px;
+  }
+
+  .accom-type {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green-soft);
+    margin-bottom: 12px;
+  }
+
+  .accom-price {
+    font-size: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .accom-price small {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-light);
+  }
+
+  .accom-area {
+    font-size: 12px;
+    color: var(--water);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .accom-why {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── DAY CARDS ── */
+  .day-card {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    page-break-inside: avoid;
+  }
+
+  .day-header {
+    background: var(--green-deep);
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .day-number {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-pale);
+  }
+
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-top: 4px;
+  }
+
+  .day-total-badge {
+    background: rgba(168,197,160,0.15);
+    border: 1px solid rgba(168,197,160,0.3);
+    padding: 8px 18px;
+    border-radius: 100px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .day-total-badge .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--green-pale);
+    display: block;
+  }
+
+  .day-total-badge .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(168,197,160,0.6);
+  }
+
+  .day-body {
+    padding: 28px 32px;
+  }
+
+  .time-block {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .time-block:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .time-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    padding-top: 3px;
+  }
+
+  .time-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .morning .time-dot { background: #f59e0b; }
+  .lunch .time-dot { background: var(--green-soft); }
+  .afternoon .time-dot { background: var(--water); }
+  .dinner .time-dot { background: #e05555; }
+  .evening .time-dot { background: #8b5cf6; }
+
+  .time-content { }
+
+  .time-main {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+
+  .time-location {
+    font-size: 13px;
+    color: var(--water);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .time-detail {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .time-cost {
+    display: inline-block;
+    background: var(--cream-dark);
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-soft);
+    margin-top: 6px;
+  }
+
+  .tip-box {
+    background: rgba(74,124,89,0.06);
+    border-left: 3px solid var(--green-soft);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 12px;
+    color: var(--green-mid);
+    margin-top: 8px;
+  }
+
+  .transport-strip {
+    background: var(--cream-dark);
+    margin: 0 -32px -28px;
+    padding: 12px 32px;
+    font-size: 12px;
+    color: var(--text-mid);
+    border-top: 1px solid #e5ddd0;
+  }
+
+  .transport-strip strong { color: var(--text-dark); }
+
+  /* ── TIPS ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
+  }
+
+  .tip-item {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+
+  .tip-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green-pale);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .tip-text {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    padding-top: 4px;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-mid);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--green-soft);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ── MISTAKES ── */
+  .mistake-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .mistake-item {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    border-left: 3px solid #e05555;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+
+  .mistake-x {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .mistake-text {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .guide-footer {
+    background: var(--green-deep);
+    color: var(--cream);
+    padding: 40px;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .guide-footer h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .guide-footer p {
+    font-size: 13px;
+    color: var(--green-pale);
+    opacity: 0.8;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cream-dark), transparent);
+    margin: 48px 0;
+  }
+
+  @media print {
+    .cover { page-break-after: always; min-height: 100vh; }
+    .day-card { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 32px 20px; }
+    .day-body { padding: 20px; }
+    .day-header { padding: 20px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .time-block { grid-template-columns: 1fr; gap: 4px; }
+    .budget-row { grid-template-columns: 1fr 1fr; }
+    .budget-note { display: none; }
+    .transport-strip { margin: 0 -20px -20px; padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock-screen">
+  <div class="lock-logo">Slovenia Travel Guide</div>
+  <h2>5 Days in <em>Slovenia</em></h2>
+  <p>Ljubljana & Lake Bled — €500 Budget · 2026 Edition</p>
+  <div class="input-row">
+    <input id="pass-input" type="text" placeholder="Enter your access code" autocomplete="off" spellcheck="false" />
+    <button id="lock-btn" onclick="checkPass()">Unlock →</button>
+  </div>
+  <div id="pass-error">Wrong code — check your confirmation email.</div>
+  <div class="lock-note">
+    Purchased this guide? Your access code was sent<br>to your email automatically after payment.
+  </div>
+</div>
+
+<!-- GUIDE CONTENT -->
+<div id="guide-content">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">Complete Travel Guide</div>
+  <h1>5 Days in<br><em>Slovenia</em></h1>
+  <div class="cover-sub">Ljubljana & Lake Bled — Done For You</div>
+  <div class="cover-meta">
+    <div class="cover-pill"><span>📅</span> 5 Days</div>
+    <div class="cover-pill"><span>💶</span> €500 Budget</div>
+    <div class="cover-pill"><span>📍</span> Ljubljana + Lake Bled</div>
+    <div class="cover-pill"><span>✈️</span> 2026 Edition</div>
+  </div>
+  <div class="cover-bottom">Everything planned. Nothing missed.</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="section">
+    <div class="section-label">Introduction</div>
+    <h2 class="section-title">Europe's best-kept secret<br>is finally getting noticed.</h2>
+    <p class="intro-text">
+      Slovenia sits tucked between Italy, Austria, Croatia, and Hungary — a country the size of New Jersey that somehow packs in alpine mountains, emerald lakes, medieval castles, Roman ruins, and a walkable capital city. Tourists who discover it call it the most beautiful country they've ever visited. The best part? It's still affordable, still uncrowded, and still genuinely welcoming. This 5-day guide gives you a complete, realistic plan for exploring Ljubljana and Lake Bled on a €500 total budget — including where to sleep, eat, and spend your time, day by day.
+    </p>
+    <div class="perfect-for">
+      <div class="tag">Solo Travelers</div>
+      <div class="tag">Budget Explorers</div>
+      <div class="tag">First-time Europe Visitors</div>
+      <div class="tag">Couples on a Budget</div>
+      <div class="tag">Nature Lovers</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BUDGET -->
+  <div class="section">
+    <div class="section-label">Money</div>
+    <h2 class="section-title">Your €500 — broken down</h2>
+    <div class="budget-grid">
+      <div class="budget-row header">
+        <div>Category</div>
+        <div>Amount</div>
+        <div>Notes</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-cat">Accommodation (5 nights)</div>
+        <div class="budget-amt">€110</div>
+        <div class="budget-note">Hostel dorm or budget guesthouse, avg €22/night</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-cat">Food & Drinks (5 days)</div>
+        <div class="budget-amt">€145</div>
+        <div class="budget-note">Mix of local restaurants, bakeries & one supermarket shop</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-cat">Activities & Entrance Fees</div>
+        <div class="budget-amt">€85</div>
+        <div class="budget-note">Postojna Cave, Bled Island boat, Ljubljana Castle, Predjama</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-cat">Transport (all in)</div>
+        <div class="budget-amt">€95</div>
+        <div class="budget-note">Airport bus, Ljubljana–Bled bus, local buses, taxis</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-cat">Emergency Buffer</div>
+        <div class="budget-amt">€65</div>
+        <div class="budget-note">Always keep this. Souvenirs, an extra coffee, surprises.</div>
+      </div>
+      <div class="budget-row total">
+        <div class="budget-cat">Total</div>
+        <div class="budget-amt">€500</div>
+        <div class="budget-note">All-in. No hidden extras.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ACCOMMODATION -->
+  <div class="section">
+    <div class="section-label">Where to Sleep</div>
+    <h2 class="section-title">The best budget stays<br>in Ljubljana</h2>
+    <p style="color: var(--text-mid); margin-bottom: 24px; font-size: 14px;">All options are in or near the old town — walking distance to everything. Book in advance especially May–September.</p>
+    <div class="accom-grid">
+      <div class="accom-card">
+        <div class="accom-name">Hostel Celica</div>
+        <div class="accom-type">Design Hostel — Best Pick</div>
+        <div class="accom-price">€22–28 <small>/ night dorm</small></div>
+        <div class="accom-area">📍 Metelkova, 10 min walk from centre</div>
+        <div class="accom-why">A converted 1882 military prison — cells turned into individually designed rooms by 80 Slovenian artists. Possibly the most unique hostel in Europe. Book early, it fills up fast.</div>
+      </div>
+      <div class="accom-card">
+        <div class="accom-name">Hostel Tresor</div>
+        <div class="accom-type">Central Hostel</div>
+        <div class="accom-price">€18–24 <small>/ night dorm</small></div>
+        <div class="accom-area">📍 Centre — right next to the market</div>
+        <div class="accom-why">Inside a converted old bank building. Social vibe, good bar downstairs, extremely central location — you can walk everywhere from here.</div>
+      </div>
+      <div class="accom-card">
+        <div class="accom-name">Adora Hotel</div>
+        <div class="accom-type">Budget Hotel — Private Room</div>
+        <div class="accom-price">€55–70 <small>/ night private</small></div>
+        <div class="accom-area">📍 Old Town area</div>
+        <div class="accom-why">If you're traveling as a couple and splitting the cost, this gets you a clean private room right in the old town for around €28–35 per person — worth it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ITINERARY -->
+  <div class="section">
+    <div class="section-label">Day by Day</div>
+    <h2 class="section-title">5 days, fully planned</h2>
+
+    <!-- DAY 1 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div>
+          <div class="day-number">Day 01</div>
+          <div class="day-title">Arrival & The Old Town</div>
+        </div>
+        <div class="day-total-badge">
+          <span class="amount">~€42</span>
+          <span class="label">Today's total</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="time-block morning">
+          <div class="time-label"><span class="time-dot"></span>Morning</div>
+          <div class="time-content">
+            <div class="time-main">Arrive & Check In</div>
+            <div class="time-location">Ljubljana Airport (LJU) → City Centre</div>
+            <div class="time-detail">Take the Arriva airport bus (line 28G) directly to the city — runs every hour, takes 45 min. Much cheaper than a taxi. Drop your bags and take a slow walk to the Ljubljanica River to orient yourself.</div>
+            <span class="time-cost">Bus: €4.10</span>
+            <div class="tip-box">💡 Buy a LPP city bus card at the airport or any newsstand. You'll use it all week.</div>
+          </div>
+        </div>
+        <div class="time-block lunch">
+          <div class="time-label"><span class="time-dot"></span>Lunch</div>
+          <div class="time-content">
+            <div class="time-main">Odprta Kuhna (Open Kitchen)</div>
+            <div class="time-location">Pogačarjev trg, Old Town (Fridays only — if not Friday: Pri Škofju)</div>
+            <div class="time-detail">Friday's Open Kitchen market is where Ljubljana chefs compete for your attention. Best street food in the city. Any other day, head to Pri Škofju for traditional Slovenian lunch — try the goveja juha (beef soup) and strukljii.</div>
+            <span class="time-cost">€8–12</span>
+          </div>
+        </div>
+        <div class="time-block afternoon">
+          <div class="time-label"><span class="time-dot"></span>Afternoon</div>
+          <div class="time-content">
+            <div class="time-main">Ljubljana Old Town Walk + Triple Bridge</div>
+            <div class="time-location">Stari Trg → Prešeren Square → Tromostovje</div>
+            <div class="time-detail">Walk the entire old town — it's small enough to do in 2 hours. Cross the famous Triple Bridge, walk along the Ljubljanica riverfront, browse the Central Market. Free and genuinely beautiful.</div>
+            <span class="time-cost">Free</span>
+          </div>
+        </div>
+        <div class="time-block dinner">
+          <div class="time-label"><span class="time-dot"></span>Dinner</div>
+          <div class="time-content">
+            <div class="time-main">Restavracija AS / Gostilna na Gradu</div>
+            <div class="time-location">Old Town / Ljubljana Castle</div>
+            <div class="time-detail">For a budget-friendly first dinner, Zvezda Café does excellent local pastries and light meals. For something more substantial, Gostilna Dela near the market offers Slovenian mains for €10–14.</div>
+            <span class="time-cost">€12–16</span>
+          </div>
+        </div>
+        <div class="time-block evening">
+          <div class="time-label"><span class="time-dot"></span>Evening</div>
+          <div class="time-content">
+            <div class="time-main">Riverfront Drinks — Filozofska Kavarna or Minimal Bar</div>
+            <div class="time-location">Breg (south bank of Ljubljanica)</div>
+            <div class="time-detail">The south bank of the Ljubljanica is lined with bars. Grab a local beer (Union or Laško) and watch the city settle into night.</div>
+            <span class="time-cost">€5–8</span>
+          </div>
+        </div>
+        <div class="transport-strip">
+          <strong>🚌 Transport tip:</strong> Everything in Ljubljana's old town is walkable. Save your bus card for trips to the outskirts. Taxis via Bolt app are cheap — €3–6 for most city rides.
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div>
+          <div class="day-number">Day 02</div>
+          <div class="day-title">Ljubljana Deep Dive</div>
+        </div>
+        <div class="day-total-badge">
+          <span class="amount">~€38</span>
+          <span class="label">Today's total</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="time-block morning">
+          <div class="time-label"><span class="time-dot"></span>Morning</div>
+          <div class="time-content">
+            <div class="time-main">Ljubljana Castle</div>
+            <div class="time-location">Grajska planota 1 — funicular or 20-min hike up</div>
+            <div class="time-detail">Take the funicular (€4 return, included with castle ticket) or hike up for free. The castle is worth it for the views alone — on clear days you see the Alps. Go early to beat crowds. The virtual museum inside is actually great.</div>
+            <span class="time-cost">€13 (castle + funicular)</span>
+            <div class="tip-box">💡 The hike up through the park is free and takes about 20 min. Skip the funicular and save €4 if you're fit.</div>
+          </div>
+        </div>
+        <div class="time-block lunch">
+          <div class="time-label"><span class="time-dot"></span>Lunch</div>
+          <div class="time-content">
+            <div class="time-main">Covered Market — Central Market Hall</div>
+            <div class="time-location">Vodnikov trg, Old Town</div>
+            <div class="time-detail">The covered market building along the river has cheap, excellent local food stalls. Grab a burek (€2.50), fresh fruit from vendors, or a proper Slovenian plate for under €7. Real local food, zero tourist markup.</div>
+            <span class="time-cost">€5–8</span>
+          </div>
+        </div>
+        <div class="time-block afternoon">
+          <div class="time-label"><span class="time-dot"></span>Afternoon</div>
+          <div class="time-content">
+            <div class="time-main">Metelkova Mesto + National Museum</div>
+            <div class="time-location">Metelkova ulica + Trg Republike</div>
+            <div class="time-detail">Metelkova is Ljubljana's alternative arts quarter — a former Yugoslav army barracks turned into an open-air gallery with street art, sculptures, and small galleries. Then walk to the National Museum of Slovenia (free on first Sunday, otherwise €6) for Slovenian history and the famous Celtic situla.</div>
+            <span class="time-cost">€0–6</span>
+          </div>
+        </div>
+        <div class="time-block dinner">
+          <div class="time-label"><span class="time-dot"></span>Dinner</div>
+          <div class="time-content">
+            <div class="time-main">Hot Horse — Local Institution</div>
+            <div class="time-location">Tivoli Park area</div>
+            <div class="time-detail">Hot Horse has been serving Slovenian-style horse meat burgers since 1992. It sounds unusual but it's genuinely delicious, very cheap, and totally authentic. A Ljubljana rite of passage. If not your thing — Pizzeria Romeo nearby does proper wood-fired pizza for €9–12.</div>
+            <span class="time-cost">€5–10</span>
+          </div>
+        </div>
+        <div class="time-block evening">
+          <div class="time-label"><span class="time-dot"></span>Evening</div>
+          <div class="time-content">
+            <div class="time-main">Tivoli Park Evening Walk</div>
+            <div class="time-location">Tivoli City Park — largest park in Ljubljana</div>
+            <div class="time-detail">A massive city park five minutes from the centre. Locals jog, walk dogs, and sit on benches here every evening. Completely free and genuinely lovely.</div>
+            <span class="time-cost">Free</span>
+          </div>
+        </div>
+        <div class="transport-strip">
+          <strong>🚶 Transport tip:</strong> Today is almost entirely walkable. Metelkova is 15 min walk from the old town. Tivoli is 10 min west of Prešeren Square.
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div>
+          <div class="day-number">Day 03</div>
+          <div class="day-title">Lake Bled Day Trip</div>
+        </div>
+        <div class="day-total-badge">
+          <span class="amount">~€58</span>
+          <span class="label">Today's total</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="time-block morning">
+          <div class="time-label"><span class="time-dot"></span>Morning</div>
+          <div class="time-content">
+            <div class="time-main">Bus to Lake Bled + Bled Castle</div>
+            <div class="time-location">Ljubljana Bus Station → Bled (55 min)</div>
+            <div class="time-detail">Arriva buses run regularly from Ljubljana's main bus station to Bled — buy tickets at the counter or onboard. Arrive early (before 10am) to beat the tour groups. Walk up to Bled Castle immediately for the iconic view before crowds arrive.</div>
+            <span class="time-cost">Bus: €7 return · Castle: €15</span>
+            <div class="tip-box">💡 Leave Ljubljana by 8am. The lake gets extremely crowded by midday in summer — early birds get magic hour light and empty paths.</div>
+          </div>
+        </div>
+        <div class="time-block lunch">
+          <div class="time-label"><span class="time-dot"></span>Lunch</div>
+          <div class="time-content">
+            <div class="time-main">Penzion Mlino or Picerija Rustika</div>
+            <div class="time-location">Bled lakeside</div>
+            <div class="time-detail">Avoid the overpriced restaurant terraces on the main strip. Penzion Mlino just south of the lake does good Slovenian lunch for €10–14. Even better — grab a kremšnita (Bled cream cake) from Slaščičarna Zima, the original recipe. You MUST try this. €3.50 for a slice of legend.</div>
+            <span class="time-cost">€10–14</span>
+          </div>
+        </div>
+        <div class="time-block afternoon">
+          <div class="time-label"><span class="time-dot"></span>Afternoon</div>
+          <div class="time-content">
+            <div class="time-main">Bled Island Pletna Boat + Walk Around the Lake</div>
+            <div class="time-location">Bled Lake</div>
+            <div class="time-detail">The traditional wooden pletna boats row you to the island church — it's touristy but iconic. Budget tip: the walk around the entire lake takes 1h 30min and is completely free. Do the walk, swim if it's warm (the water is clean and free), then take one pletna at the end. Ring the church bell 3 times for a wish.</div>
+            <span class="time-cost">Pletna: €18 · Lake walk: Free</span>
+          </div>
+        </div>
+        <div class="time-block dinner">
+          <div class="time-label"><span class="time-dot"></span>Dinner</div>
+          <div class="time-content">
+            <div class="time-main">Back to Ljubljana — Gostilna Sokol</div>
+            <div class="time-location">Ciril-Metodov trg 18, Ljubljana</div>
+            <div class="time-detail">Take the 5–6pm bus back. Gostilna Sokol is an old-school Slovenian inn doing hearty traditional dishes — žganci (buckwheat porridge), štruklji (rolled dumplings), roast meats. Classic, cheap, real.</div>
+            <span class="time-cost">Bus: included · Dinner: €11–15</span>
+          </div>
+        </div>
+        <div class="transport-strip">
+          <strong>🚌 Transport tip:</strong> Arriva bus Ljubljana–Bled departs from the main bus station (Trg Osvobodilne fronte). Journey ~55 min. First bus ~6:30am, last return ~9pm. No booking needed, just show up.
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div>
+          <div class="day-number">Day 04</div>
+          <div class="day-title">Postojna Cave & Predjama Castle</div>
+        </div>
+        <div class="day-total-badge">
+          <span class="amount">~€65</span>
+          <span class="label">Today's total</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="time-block morning">
+          <div class="time-label"><span class="time-dot"></span>Morning</div>
+          <div class="time-content">
+            <div class="time-main">Bus to Postojna + Cave Tour</div>
+            <div class="time-location">Ljubljana → Postojna (1hr by bus)</div>
+            <div class="time-detail">Postojna Cave is one of the largest cave systems in the world — 24km of passages, an underground train, and the only place you'll see living olm (human fish). The 90-min guided tour takes you through extraordinary formations. Book the cave ticket online in advance to save time — prices are the same but you skip the queue.</div>
+            <span class="time-cost">Bus: €6.80 · Cave: €29.90</span>
+            <div class="tip-box">💡 Inside the cave it's 8°C year-round. Bring a light jacket regardless of outside temperature.</div>
+          </div>
+        </div>
+        <div class="time-block lunch">
+          <div class="time-label"><span class="time-dot"></span>Lunch</div>
+          <div class="time-content">
+            <div class="time-main">Gostilna Požar (Postojna town)</div>
+            <div class="time-location">Postojna town centre, 10 min walk from cave</div>
+            <div class="time-detail">Skip the overpriced cave complex restaurant. Walk 10 minutes into Postojna town for proper local lunch at Gostilna Požar — good Slovenian food, normal prices. Daily lunch special (malica) is usually €7–9 including soup.</div>
+            <span class="time-cost">€8–11</span>
+          </div>
+        </div>
+        <div class="time-block afternoon">
+          <div class="time-label"><span class="time-dot"></span>Afternoon</div>
+          <div class="time-content">
+            <div class="time-main">Predjama Castle</div>
+            <div class="time-location">Predjama (10km from Postojna — taxi or shuttle)</div>
+            <div class="time-detail">A castle literally built into the mouth of a cave in a 123m cliff. One of the most dramatic buildings you'll ever see. The Postojna-to-Predjama shuttle runs when the cave has tours. Alternatively, a taxi from Postojna costs around €10 each way — split with other travelers at the cave exit.</div>
+            <span class="time-cost">Shuttle: €8 return · Castle: €14</span>
+          </div>
+        </div>
+        <div class="time-block dinner">
+          <div class="time-label"><span class="time-dot"></span>Dinner</div>
+          <div class="time-content">
+            <div class="time-main">Back in Ljubljana — Lunch Café Marley & Me</div>
+            <div class="time-location">Stari trg 9, Old Town</div>
+            <div class="time-detail">After a long day, this cozy spot in the old town does excellent burgers, sandwiches, and local craft beer. Laid-back vibe, fair prices, outdoor seating by the river when weather allows.</div>
+            <span class="time-cost">Bus: €6.80 · Dinner: €10–14</span>
+          </div>
+        </div>
+        <div class="transport-strip">
+          <strong>🚌 Transport tip:</strong> Arriva buses run Ljubljana–Postojna roughly hourly. Leave Ljubljana by 9am to fit cave + castle comfortably before the last bus back (~7pm). Check current schedules at ap.arriva.si.
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div>
+          <div class="day-number">Day 05</div>
+          <div class="day-title">Final Morning & Departure</div>
+        </div>
+        <div class="day-total-badge">
+          <span class="amount">~€22</span>
+          <span class="label">Today's total</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="time-block morning">
+          <div class="time-label"><span class="time-dot"></span>Morning</div>
+          <div class="time-content">
+            <div class="time-main">Rooster Coffee + Zmajski Most (Dragon Bridge)</div>
+            <div class="time-location">Rooster Coffee: Trubarjeva cesta 52</div>
+            <div class="time-detail">Ljubljana has excellent coffee culture. Rooster is a local specialty café doing proper filter and espresso. After coffee, walk across the Dragon Bridge — four copper dragons, symbol of Ljubljana. Take the photos you forgot earlier in the trip.</div>
+            <span class="time-cost">Coffee: €3</span>
+          </div>
+        </div>
+        <div class="time-block lunch">
+          <div class="time-label"><span class="time-dot"></span>Lunch</div>
+          <div class="time-content">
+            <div class="time-main">Last Slovenian Meal — Restavracija Manna</div>
+            <div class="time-location">Eipprova ulica 1a</div>
+            <div class="time-detail">Manna does Slovenian cuisine with a slight modern twist — great value lunch menu. Or go back to the Central Market for one final burek and fruit. Grab some Slovenian chocolate (Zima brand) as a souvenir.</div>
+            <span class="time-cost">€10–14</span>
+          </div>
+        </div>
+        <div class="time-block afternoon">
+          <div class="time-label"><span class="time-dot"></span>Afternoon</div>
+          <div class="time-content">
+            <div class="time-main">Airport Transfer</div>
+            <div class="time-location">Ljubljana City Centre → LJU Airport</div>
+            <div class="time-detail">Arriva airport bus line 28G departs from in front of the train station (Trg Osvobodilne fronte). Check current schedule at ap.arriva.si. Journey is 45 min — allow 2.5 hours before your flight.</div>
+            <span class="time-cost">Bus: €4.10</span>
+            <div class="tip-box">💡 The bus goes directly to the terminal. Much better value than the €35+ taxi. Just don't cut it too close to your flight.</div>
+          </div>
+        </div>
+        <div class="transport-strip">
+          <strong>✈️ Departure tip:</strong> Ljubljana Airport is small and fast — 30–40 min from check-in to gate. Don't overcompensate by arriving 3 hours early. 1.5 hours is genuinely enough.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end itinerary -->
+
+  <div class="divider"></div>
+
+  <!-- MONEY SAVING TIPS -->
+  <div class="section">
+    <div class="section-label">Save Money</div>
+    <h2 class="section-title">10 ways to stretch<br>your €500 further</h2>
+    <div class="tips-grid">
+      <div class="tip-item"><div class="tip-num">01</div><div class="tip-text"><strong>Eat lunch at the Central Market</strong> — Vendors sell fresh produce, cheese, and cooked food at local prices. Your best cheap meal of the trip is here.</div></div>
+      <div class="tip-item"><div class="tip-num">02</div><div class="tip-text"><strong>Walk around Lake Bled instead of renting a bike</strong> — The loop takes 1.5 hours, it's flat, and it's completely free. The bike rental (€8/hr) isn't worth it.</div></div>
+      <div class="tip-item"><div class="tip-num">03</div><div class="tip-text"><strong>Book Postojna Cave online in advance</strong> — Saves you queue time but also sometimes has small early-bird discounts. Prices at the door are the same but slower.</div></div>
+      <div class="tip-item"><div class="tip-num">04</div><div class="tip-text"><strong>Use the Arriva airport bus both ways</strong> — €4.10 vs €35 taxi. The bus is comfortable, direct, and reliable. The taxi saving alone covers a full day of food.</div></div>
+      <div class="tip-item"><div class="tip-num">05</div><div class="tip-text"><strong>Drink tap water</strong> — Ljubljana tap water is mountain spring quality. Seriously one of the best tap waters in Europe. Never buy bottled water here.</div></div>
+      <div class="tip-item"><div class="tip-num">06</div><div class="tip-text"><strong>Visit Metelkova at night</strong> — The alternative arts quarter is free, always interesting, and often has live events. Best free nightlife in the city.</div></div>
+      <div class="tip-item"><div class="tip-num">07</div><div class="tip-text"><strong>Hike up to Ljubljana Castle</strong> — The funicular is €4 each way. The walk through the park takes 20 min and is actually more enjoyable. Save the €8 for a good dinner.</div></div>
+      <div class="tip-item"><div class="tip-num">08</div><div class="tip-text"><strong>Buy a supermarket breakfast</strong> — Mercator or Spar near any hostel. Coffee + yoghurt + pastry = €3. Hostel breakfast "deals" are usually €6–8 for the same thing.</div></div>
+      <div class="tip-item"><div class="tip-num">09</div><div class="tip-text"><strong>Combine Postojna + Predjama in one day</strong> — They're 10km apart. A Postojna-only day wastes a bus fare. Always do both on the same trip.</div></div>
+      <div class="tip-item"><div class="tip-num">10</div><div class="tip-text"><strong>Use Bolt for taxis instead of street cabs</strong> — Ljubljana taxis are regulated but Bolt is slightly cheaper and always metered. Download before you arrive.</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BEFORE YOU GO -->
+  <div class="section">
+    <div class="section-label">Preparation</div>
+    <h2 class="section-title">Before you leave home —<br>check these off</h2>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div>Book accommodation in advance (especially May–Sept)</div>
+      <div class="check-item"><div class="check-box"></div>Download the Arriva bus app or bookmark ap.arriva.si</div>
+      <div class="check-item"><div class="check-box"></div>Buy Postojna Cave tickets online to skip queues</div>
+      <div class="check-item"><div class="check-box"></div>Download Bolt taxi app and add a payment method</div>
+      <div class="check-item"><div class="check-box"></div>Pack one warm layer — Postojna Cave is 8°C inside</div>
+      <div class="check-item"><div class="check-box"></div>Download Google Maps offline for Ljubljana + Bled area</div>
+      <div class="check-item"><div class="check-box"></div>Check if your bank card works fee-free abroad (Revolut/Wise recommended)</div>
+      <div class="check-item"><div class="check-box"></div>Slovenia uses Euro (€) — no currency exchange needed from Eurozone</div>
+      <div class="check-item"><div class="check-box"></div>Check Ljubljana weather — pack rain layer for alpine region</div>
+      <div class="check-item"><div class="check-box"></div>Screenshot the bus timetables for Postojna & Bled (offline backup)</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MISTAKES -->
+  <div class="section">
+    <div class="section-label">Watch Out</div>
+    <h2 class="section-title">Mistakes that will waste<br>your time or money</h2>
+    <div class="mistake-list">
+      <div class="mistake-item"><div class="mistake-x">✗</div><div class="mistake-text"><strong>Eating at restaurants directly on the Bled lakefront.</strong> These are tourist traps with 40–60% markup over normal Ljubljana prices. Walk one block back or use local spots like Penzion Mlino.</div></div>
+      <div class="mistake-item"><div class="mistake-x">✗</div><div class="mistake-text"><strong>Taking a taxi from Ljubljana Airport.</strong> They charge €35–45 for a route the bus does for €4.10. The bus is comfortable, direct, and 45 minutes. There's zero reason for a taxi unless you have excessive luggage.</div></div>
+      <div class="mistake-item"><div class="mistake-x">✗</div><div class="mistake-text"><strong>Going to Bled without going early.</strong> After 11am in summer it's overcrowded. The same view that looks like a screensaver at 8am looks like a packed car park at noon.</div></div>
+      <div class="mistake-item"><div class="mistake-x">✗</div><div class="mistake-text"><strong>Skipping Predjama Castle.</strong> Almost every visitor does Postojna Cave and skips the castle 10km away. It's arguably more impressive and equally unique. Always do both.</div></div>
+      <div class="mistake-item"><div class="mistake-x">✗</div><div class="mistake-text"><strong>Not trying kremšnita in Bled.</strong> This is the one non-negotiable food experience. The original recipe at Slaščičarna Zima. Don't leave without it.</div></div>
+    </div>
+  </div>
+
+</div><!-- end page -->
+
+<!-- FOOTER -->
+
+<div class="guide-footer">
+  <h3>Have an incredible trip to Slovenia.</h3>
+  <p>This guide was built to replace 20 hours of research with one document. Now just go.</p>
+  <p style="margin-top: 16px; font-size: 12px; opacity: 0.4;">Prices are 2025/2026 estimates and may vary. Always verify opening hours and transport schedules before travelling.</p>
+</div>
+
+</div><!-- end guide-content -->
+</body>
+</html>
